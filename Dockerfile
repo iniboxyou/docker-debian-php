@@ -8,6 +8,9 @@ RUN apt-get -qq install apache2 php5 libapache2-mod-php5
 RUN apt-get -qq install php5-mysql php5-json php5-curl
 RUN apt-get clean
 
+VOLUME /var/www
+VOLUME ["/etc/apache2/sites-available", "/etc/apache2/sites-enabled"]
+
 EXPOSE 80
 
 CMD /usr/sbin/apache2ctl -D FOREGROUND
