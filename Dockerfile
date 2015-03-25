@@ -1,4 +1,4 @@
-FROM debian:squeeze
+FROM debian:jessie
 MAINTAINER Peter Suschlik <peter@suschlik.de>
 
 ENV DEBIAN_FRONTEND noninteractive
