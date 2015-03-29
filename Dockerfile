@@ -1,6 +1,7 @@
 FROM debian:jessie
 MAINTAINER Peter Suschlik <peter@suschlik.de>
 
+ENV RELEASE_DATE 2015-03-29
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update
