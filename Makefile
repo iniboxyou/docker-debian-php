@@ -1,14 +1,10 @@
-
-NAME=debian-php
+TARGET?=jessie
 
 build:
-	docker build -t ${NAME} .
+	cd ${TARGET} && make build
 
-shell: build
-	docker run -it --rm -u root ${NAME} bash
+shell:
+	cd ${TARGET} && make shell
 
-test: build
-	docker run -it --rm -P ${NAME}
-
-daemon:
-	docker run -d --name ${NAME} ${NAME}
+test:
+	cd ${TARGET} && make test
