@@ -1,8 +1,9 @@
 FROM debian:jessie
 MAINTAINER Peter Suschlik <peter@suschlik.de>
 
-ENV RELEASE_DATE 2015-04-02
+ENV RELEASE_DATE 2015-07-03
 ENV DEBIAN_FRONTEND noninteractive
+ENV APACHE_HTTPD "exec /usr/sbin/apache2"
 
 RUN \
   apt-get -qq update && \
@@ -16,4 +17,4 @@ VOLUME ["/etc/apache2/sites-available", "/etc/apache2/sites-enabled"]
 
 EXPOSE 80
 
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
