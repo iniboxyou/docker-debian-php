@@ -12,6 +12,13 @@ RUN \
     && \
   apt-get clean
 
+ENV SUPPORTED_LANGUAGES="en_US|de_DE"
+RUN \
+  apt-get install locales && \
+  cat /usr/share/i18n/SUPPORTED | grep -E "$SUPPORTED_LANGUAGES" > /etc/locale.gen && \
+  locale-gen && \
+  apt-get clean
+
 VOLUME /var/www
 VOLUME ["/etc/apache2/sites-available", "/etc/apache2/sites-enabled"]
 
